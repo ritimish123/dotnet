@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace New_Project_Day5_Assignment
+{
+    public class Course
+    {
+        string id;
+        string name;
+        string duration;
+        float fees;
+
+        public Course() { }
+        public Course(string id, string name, string duration, float fees)
+        {
+            this.id = id;
+            this.name = name;
+            this.duration = duration;
+            this.fees = fees;
+        }
+
+        public string CourseId
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string CourseName
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string CourseDuration
+        {
+            get { return duration; }
+            set { duration = value; }
+        }
+
+        public float Fees
+        {
+            get { return fees; }
+            set { fees = value; }
+        }
+
+
+
+    }
+
+    class DegreeCourse : Course
+    {
+        public string level;
+        public bool active;
+        public DegreeCourse(string id, string name, string duration, float fees, string level, bool active) : base(id, name, duration, fees)
+        {
+            this.level = level;
+            this.active = active;
+        }
+
+        public override string ToString()
+        {
+            return "\t" + CourseId + "\t" + CourseName + "\t" + CourseDuration + "\t" + Fees + "\n";
+        }
+    }
+    class DiplomaCourse : Course
+    {
+        public string type;
+        public DiplomaCourse(string id, string name, string duration, float fees, string type) : base(id, name, duration, fees)
+        {
+            this.type = type;
+        }
+
+        public override string ToString()
+        {
+            return "\t" + CourseId + "\t" + CourseName + "\t" + CourseDuration + "\t" + Fees + "\n";
+        }
+
+    }
+}

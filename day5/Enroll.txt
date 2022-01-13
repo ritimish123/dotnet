@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace New_Project_Day5_Assignment
+{
+    public class SameCourse : Exception
+    {
+        public SameCourse(String message)
+            : base(message)
+        {
+
+        }
+    }
+    class Enroll
+    {
+        private Student student;
+        private Course course;
+        private DateTime enrollmentDate;
+        public int count;
+        public int coursecount;
+        public int enrollmentcount;
+        private Course[] CourseArr = new Course[10];
+        private Student[] StudentArr = new Student[10];
+        private Enroll[] EnrollArr = new Enroll[10];
+        // private Enroll[][] Enrollments = new Enroll[5][];
+
+        //public void JaggedArray()
+        //{
+        //    Enrollments[0][] = { new Enroll(student, course, enrollmentDate),new Enroll(student, course, enrollmentDate)};
+        //}
+        public Enroll()
+        {
+            count = 0;
+            coursecount = 0;
+            enrollmentcount = 0;
+        }
+        Enroll(Student student, Course course, DateTime enrollmentDate)
+        {
+            this.student = student;
+            this.course = course;
+            this.enrollmentDate = enrollmentDate;
+        }
+
+        public void introduce(Course course)
+        {
+            //int inx = CourseArr.GetLength(10);
+            CourseArr[coursecount] = course;
+            coursecount++;
+
+        }
+
+        public Course[] listOfCourses()
+        {
+
+            return CourseArr;
+        }
+
+        public void register(Student student)
+        {
+            StudentArr[count] = student;
+            count++;
+
+        }
+
+        public Student[] listOfStudents()
+        {
+            return StudentArr;
+        }
+
+        public void enroll(Student student, Course course)
+        {
+            // int inx = EnrollArr.GetLength(10);
+
+            //  EnrollArr[inx] = new Enroll(student,course, enrollmentDate);
+            EnrollArr[enrollmentcount] = new Enroll(student, course, enrollmentDate);
+            enrollmentcount++;
+        }
+
+        public Enroll[] listOfEnrollments()
+        {
+            return EnrollArr;
+        }
+
+    }
+
+}
